@@ -17,12 +17,12 @@ video: Chapter 2 - Part 3
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t) here: 
  
  
- 
- 
- 
- 
- 
- 
+ bool
+ char
+ int
+ float
+ double
+ void
  
  
  
@@ -61,9 +61,27 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
     
+    bool isPrimaryContact = true;
+    bool hasValidAddress = false;
+    bool shouldUpdate = true;
 
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    char rating = 'b';
+    char firstInitial = 'S';
+    char asciiA = 65;
+
+    int age = 35;
+    int year = 1906;
+    int yearsRemainingInTerm = 28;
+
+    float cupsOfFlour = 2.25f;
+    float piFloat = 3.14159f; // minimum precision of a float (6)
+    float massOfTheSun = 1.989e30f;
+
+    double goldenRatio = 1.61803398875;
+    double piDouble = 3.14159265358979; // minimum precision of a double (15)
+    double massOfProton = 1.6726219e-27;
+
+    ignoreUnused(number, isPrimaryContact, hasValidAddress, shouldUpdate, rating, firstInitial, asciiA, age, year, yearsRemainingInTerm, cupsOfFlour, piFloat, massOfTheSun, goldenRatio, piDouble, massOfProton); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -80,42 +98,106 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+bool determineIfValidInput(int number, int qualifierType = 0)
+{
+    ignoreUnused(number, qualifierType);
+    return {};
+}
 
 /*
  2)
  */
+char findClientFirstInitial(double clientId, bool toLowerCase = false)
+{
+    ignoreUnused(clientId, toLowerCase);
+    return {};
+}
 
 /*
  3)
  */
+int findNumGasStationsInArea(double xLatitude, 
+                             double xLongitude, 
+                             double yLatitude, 
+                             double yLongitude, 
+                             bool requireDieselPump = false)
+{
+    ignoreUnused(xLatitude, xLongitude, yLatitude, yLongitude, requireDieselPump);
+    return {};
+}
 
 /*
  4)
  */
-
+float calculateGpaOfStudent(double studentId, bool calculateCgpa = false)
+{
+    ignoreUnused(studentId, calculateCgpa);
+    return {};
+}
 /*
  5)
  */
+double calculateArea(double length, double width)
+{
+    ignoreUnused(length, width);
+    return {};
+}
 
 /*
  6)
  */
+void updateDatabaseWithSale(double customerId, 
+                            double salesRepId, 
+                            double purchaseAmount, 
+                            int date, 
+                            bool discountApplied = false, 
+                            bool flagAsTimeSensitive = false, 
+                            bool flagAsCustomized = false)
+{
+    ignoreUnused(customerId, salesRepId, purchaseAmount, date, discountApplied, flagAsTimeSensitive, flagAsCustomized);
+}
 
 /*
  7)
  */
+void fillCircle(int centerX, 
+                int centerY, 
+                float radius, 
+                int r = 0, 
+                int g = 0, 
+                int b = 0, 
+                float a = 1.0f, 
+                int borderStyle = 0)
+{
+    ignoreUnused(centerX, centerY, radius, r, g, b, a, borderStyle);
+}
 
 /*
  8)
  */
+double findNthFibonacciNumber(int n)
+{
+    ignoreUnused(n);
+    return {};
+}
 
 /*
  9)
  */
+bool existsInDatabase(double index)
+{
+    ignoreUnused(index);
+    return {};
+}
 
 /*
  10)
  */
+int findGreatestCommonFactor(int a, int b) 
+{
+    ignoreUnused(a, b);
+    return {};
+}
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -137,27 +219,27 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    auto isValidInput = determineIfValidInput(432, 3);
     //2)
-    
+    auto clientFirstInitial = findClientFirstInitial(145322);
     //3)
-    
+    auto numGasStations = findNumGasStationsInArea(50.21538, 14.22392, 50.02254, 14.69496, true);
     //4)
-    
+    auto cGPA = calculateGpaOfStudent(53244, true);
     //5)
-    
+    auto area = calculateArea(35.2, 246.7);
     //6)
-    
+    updateDatabaseWithSale(4526, 23, 56.77, 03212014, false, true);
     //7)
-    
+    fillCircle(1200, 800, 20.3f, 110, 226, 158, 0.59f, 3);
     //8)
-    
+    auto nthFibonacci = findNthFibonacciNumber(460);
     //9)
-    
+    auto indexExistsInDatabase = existsInDatabase(45200);
     //10)
+    auto greatestCommonFactor = findGreatestCommonFactor(40, 1440);
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, isValidInput, clientFirstInitial, numGasStations, cGPA, area, nthFibonacci, indexExistsInDatabase, greatestCommonFactor);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
